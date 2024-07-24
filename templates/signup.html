@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="https://www.netflix.com/in/favicon.ico" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="banner">
+        <a href="/">
+            <img class="netflix" src="static/images/logoNetflix.png" alt="Netflix Logo">
+        </a>
+    </div>
+    <div id="video-container">
+        <video id="background-video" autoplay muted>
+            <source src="static/images/Netflix.mp4" type="video/mp4">
+        </video>
+    </div>
+    <main>
+        <div id="netflix-logo">
+            <img src="static/images/Netflix_Logo_PMS.png">
+        </div>
+
+        <div id="content">
+            <div class="pics">
+                <div class="wrapper">
+                    <form>
+                        <h1>Sign In</h1>
+                        <div class="input-box" id="input1">
+                            <input id="inputemail" type="text" required>
+                            <label>Email or phone number</label>
+                        </div>
+                        <div class="input-box" id="input2">
+                            <input id="inputpw" type="password" required>
+                            <label>Password</label>
+                        </div>
+                        <button type="button" onclick="masuk()" class="btn">Sign In</button>
+
+                        <div class="remember-forgot">
+                            <label><input type="checkbox">Remember Me</label>
+                            <a href="#">Need help?</a>
+                        </div>
+
+                        <div class="register-link">
+                            <p>New to Netflix? <a href="/">Sign up now</a></p>
+
+                            <div class="register">
+                                <p>This page is protected by Google reCAPTCHA to ensure you're not a bot.<a
+                                        href="#">Learn more.</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+<footer>
+    <div class="footer">
+        <div class="row">
+            <div class="col">
+                <a href="#">FAQ</a>
+                <a href="#">Terms of use</a>
+            </div>
+            <div class="col">
+                <a href="#">Help Centre</a>
+                <a href="#">Corporate Information</a>
+            </div>
+            <div class="col">
+                <a href="#">Terms of Use</a>
+
+            </div>
+            <div class="col">
+                <a href="#">Privacy</a>
+
+            </div>
+        </div>
+        <div class="select">
+            <select>
+                <option>English</option>
+                <option>Indonesia</option>
+            </select>
+        </div>
+</footer>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</html>

